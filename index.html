@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Activities Calendar</title>
+
+    <link href="./dist/main.css" media="all" rel="stylesheet" />
+
+  </head>
+  <body>
+
+  	<div class="events-picker-button-wrap">
+		<div id="activities-picker-btn" class="btn events-picker-btn"><span class="icon-calendar"></span><span>Select Date</span></div>
+		<input type="hidden" name="events-picker-input" id="activities-picker-input" class="events-picker-input">
+		<div id="activities-picker" class="events-picker"></div>
+	</div>
+	<!--.calendar-picker-btn-->
+
+	<div id="activities">
+
+	    <div class="today-date-bar">
+	        <div class="prev-day-link" v-on:click="prevDay"><span class="prev-day-icon"></span>
+	        </div>
+	        <div class="today-date"><span class="formatted-today-date">{{ todayFormatted }}</span>
+	        </div>
+	        <div class="next-day-link" v-on:click="nextDay"><span class="next-day-icon"></span>
+	        </div>
+	    </div>
+
+	    <ul v-if="Object.keys(todayItems).length" v-datechange>
+	        <li class="activities-item" v-for="item in todayItems" :class="item.timeofday">
+
+	            <div class="activities-item-inner">
+
+	                <div class="activity-head activity-time" v-if="item.starttime">{{ item.starttime }}</div>
+	                <div class="activity-text">
+
+	                    <div class="activity-head activity-name">
+	                        <div v-html="item.name"></div>
+	                        <div class="activity-icons">
+	                            <span v-if="item.icon1=='C'" class="activity-icon activity-icon-c tooltip" title="Continuing Medical Education">CME</span>
+	                            <span v-if="item.icon2=='C'" class="activity-icon activity-icon-c tooltip" title="Continuing Medical Education">CME</span>
+	                            <span v-if="item.icon2=='F'" class="activity-icon activity-icon-f tooltip" title="Featured Event">FE</span>
+	                            <span v-if="item.icon1=='F'" class="activity-icon activity-icon-f tooltip" title="Featured Event">FE</span>
+	                            <span v-if="item.price" class="activity-icon activity-icon-price tooltip" title="Fee. Service allowance may be applied to these offerings.">$</span>
+	                        </div>
+	                    </div>
+	                    <div class="activity-head activity-duration" v-if="item.duration">{{ item.duration }} Minutes</div>
+	                    <div class="activity-location" v-if="item.location">{{ item.location }}</div>
+	                    <div class="activity-limit" v-if="item.limit">Limit: {{ item.limit }}</div>
+	                    <div class="activity-level" v-if="item.level">Level: {{ item.level }}</div>
+	                    <div class="activity-copy">
+	                        <div class="activity-details" v-html="item.details"></div>
+	                        <div class="activity-description" v-html="item.description"></div>
+	                    </div>
+
+	                    <!--.activity-description-->
+	                    <div class="activity-price" v-if="item.price">${{ item.price }}</div>
+
+	                    <div class="wishlist-heart-toggle" :data-wishlist-id="item.id" :data-wishlist-title="item.name" data-wishlist-url="" data-wishlist-thumb="" :data-wishlist-location=" item.destination" title="Click to add/remove from Wish List" v-on:click="wishlistToggle"><span></span>
+	                    </div>
+
+	                </div>
+	                <!--.activity-text-->
+
+	            </div>
+	            <!--.activities-item-inner-->
+
+	        </li>
+	    </ul>
+	    <ul v-else>
+	        <li class="activities-item no-activites">No information has been uploaded for {{ today }}. Please feel free to <a href="/contact-us/">Contact Us</a> directly for more information</li>
+	    </ul>
+
+	    <div class="bottom-controls-bar">
+	        <div class="prev-day-link" v-on:click="prevDay"><span class="prev-day-icon"></span> Previous Day</div>
+	        <div class="next-day-link" v-on:click="nextDay">Next Day <span class="next-day-icon"></span>
+	        </div>
+	    </div>
+
+	</div>
+	<!--#activities-->
+
+
+    <script src="./dist/vendor.js"></script>
+    <script src="./dist/main.js"></script>
+
+  </body>
+</html>

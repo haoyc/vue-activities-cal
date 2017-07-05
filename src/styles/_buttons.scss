@@ -1,0 +1,60 @@
+.center-btn-wrap {
+	display: block;
+	text-align: center;
+}
+
+.btn, .button-primary, input[type="submit"] {
+	background-color: $orange;
+	color:#fff !important;
+	font-size: 12px;
+	letter-spacing: 2px;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	display: inline-block;
+	margin:0 auto;
+	padding:16px 30px;
+	border:none;
+	@include transition(background-color $default-speed $default-transition);
+
+	&:active {
+		background-color: $orangeActive;
+	}
+
+	.icon-calendar {
+		display: inline-block;
+		width:16px;
+		height:15px;
+		margin:0 10px -3px 0;
+		@include retina-image('../images/icon-calendar', 16px 15px, 'png');
+		background-position: 0 0;
+		background-repeat: no-repeat;
+	}
+
+	.icon-play {
+		display: inline-block;
+		width:24px;
+		height:24px;
+		margin:-5px 10px -7px 0;
+		@include retina-image('../images/icon-play', 24px 24px, 'png');
+		background-position: 0 0;
+		background-repeat: no-repeat;
+	}
+
+	.icon-phone {
+		display: inline-block;
+		width:16px;
+		height:16px;
+		margin:0 10px -3px 0;
+		@include retina-image('../images/icon-phone', 16px 16px, 'png');
+		background-position: 0 0;
+		background-repeat: no-repeat;
+	}
+
+	@include media($screen-md) {
+
+		&:hover {
+			background-color: $orangeHover;
+		}
+	}
+}

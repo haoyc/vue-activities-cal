@@ -1,0 +1,308 @@
+.events-picker-button-wrap {
+	@include row();
+	position: relative;
+	padding:20px 10px 10px;
+	margin-bottom: 20px;
+
+	.events-picker-btn {
+		display: inline-block;
+		width:215px;
+
+		&:hover {
+			cursor:pointer;
+		}
+	}
+}
+
+.explore-schedule-description, .no-activites {
+	text-align: center;
+	width:100%;
+	max-width: 700px;
+	margin:0 auto;
+	font-size: 14px;
+	line-height: 21px;
+	color:$footerLowerGreyText;
+	padding:30px;
+
+	@include media($screen-md) {
+		padding:35px 0;
+		font-size: 16px !important;
+	}
+}
+
+.today-date-bar {
+	background-color: $lightGrey;
+	text-transform: uppercase;
+	text-align: center;
+	padding:20px;
+
+	div {
+		display: inline-block;
+	}
+
+	.today-date {
+		padding:0 10px;
+		font-size: 12px;
+
+		.formatted-today-date {
+			display: block;
+			line-height: 2px;
+		}
+	}
+
+	.prev-day-link, .next-day-link {
+		width:16px;
+		height:16px;
+	}
+
+	@include media($screen-sm) {
+		.today-date {
+			padding:0 20px;
+			font-size: 14px;
+		}
+	}
+}
+
+.bottom-controls-bar {
+	background-color: $lightGrey;
+	text-transform: uppercase;
+	color:$lightGrey;
+	padding:30px 10px;
+	@include clearfix();
+
+	.prev-day-link {
+		float: left;
+		padding-left:30px;
+	}
+	.next-day-link {
+		float: right;
+		padding-right:30px;
+
+		.next-day-icon {
+			background-position: right top;
+		}
+	}
+
+	@include media($screen-ss) {
+		color:$orange;
+		line-height: 1.4em;
+	}
+
+	@include media($screen-md) {
+		padding:60px 40px;
+	}
+}
+
+#activities {
+
+	a {
+		color:$orange;
+	}
+	
+	ul,ol {
+		margin:0;
+		padding:0;
+		list-style: none;
+	}
+
+	.prev-day-link, .next-day-link {
+		position: relative;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.prev-day-icon, .next-day-icon {
+		display: inline-block;
+		background-repeat: no-repeat;
+		width:100%;
+		height:100%;
+		position: absolute;
+		bottom: -2px;
+		left:0;
+	}
+
+	.prev-day-icon {
+		@include retina-image('../images/schedule-prev-arrow', 16px 16px, 'png');
+	}
+
+	.next-day-icon {
+		@include retina-image('../images/schedule-next-arrow', 16px 16px, 'png');
+	}
+
+	@include media($screen-md) {
+		ul {
+			padding: 20px 20px 10px;
+		}
+	}
+}
+
+.activities-item {
+	border-top:10px solid $lightGrey;
+	font-size: 14px;
+	line-height: 21px;
+	position: relative;
+	clear:both;
+
+	&.no-activites {
+		border-top:none;
+	}
+
+	.activities-item-inner {
+		padding:20px;
+		position: relative;
+	}
+
+	&.morning, &.afternoon, &.evening {
+		&:before {
+			display: block;
+			clear:both;
+			width:100%;
+			background-color: $lightGrey;
+			text-align: center;
+			font-size: 20px;
+			line-height: 24px;
+			text-transform: uppercase;
+			font-family: 'Oswald', sans-serif;
+			padding: 30px 0;
+		}
+	}
+
+	&.morning {
+		&:before {
+			content:'Morning';
+		}
+	}
+
+	&.afternoon {
+		&:before {
+			content:'Afternoon';
+		}
+	}
+
+	&.evening {
+		&:before {
+			content:'Evening';
+		}
+	}
+
+	&.morning ~ .morning, &.afternoon ~ .afternoon, &.evening ~ .evening {
+		&:before {
+			content:'';
+			padding:0;
+		}
+	}
+
+	.activity-head {
+		font-size: 20px;
+		line-height: 24px;
+		text-transform: uppercase;
+		font-family: 'Oswald', sans-serif;
+		padding-right:40px;
+		@include row();
+
+		div, span {
+			display: inline-block;
+			float: left;
+		}
+	}
+
+	.activity-text {
+		margin-left:100px;
+	}
+
+	.activity-icons {
+		position: absolute;
+		top:75px;
+		left:10px;
+	}
+
+	.activity-icon {
+		color:$scheduleGreyText;
+		border:1px solid $scheduleGreyText;
+		font-size: 13px;
+		padding:0 5px;
+		margin-left:5px;
+		font-weight: normal;
+	}
+
+	.activity-time, .activity-duration {
+		position: absolute;
+		left:20px;
+		color:$scheduleGreyText;
+	}
+
+	.activity-time {
+		top:20px;
+		padding-bottom: 10px;
+	}
+
+	.activity-duration {
+		top:45px;
+		font-size: 14px;
+	}
+
+	.activity-location {
+		font-weight: bold;
+		padding-bottom:30px;
+	}
+
+	.wishlist-heart-toggle {
+		position: absolute;
+		top:20px;
+		right:20px;
+	}
+
+	@include media($screen-ss) {
+		.activity-text {
+			margin-left:120px;
+		}
+	}
+	
+	@include media($screen-sm) {
+		border-top:none;
+	}
+
+	@include media($screen-md) {
+
+		&.morning, &.afternoon, &.evening {
+			&:before {
+				background-color:#fff;
+				padding-top:50px;
+			}
+		}
+
+		.activities-item-inner {
+			padding:0 0 10px;
+		}
+
+		.activity-time {
+			top:20px;
+			left:0;
+		}
+		.activity-duration {
+			position: relative;
+			top:auto;
+			left:auto;
+		}
+		.activity-text {
+			background-color: $lighterGrey;
+			padding:20px;
+			position: relative;
+		}
+		.activity-icons {
+			position: relative;
+			top:auto;
+			left:auto;
+		}
+		.activity-icon {
+			margin-left:10px;
+		}
+		.activity-location {
+			position: absolute;
+			top:20px;
+			right:120px;
+		}
+	}
+}

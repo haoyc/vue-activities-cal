@@ -1,0 +1,100 @@
+.events-picker {
+  .datepicker {
+    table {
+      background-color: #fff;
+      box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.2);
+      
+      thead {
+        background-color: $calendarBlue;
+      }
+
+      tr {
+        td, th {
+          margin:0 5px;
+          padding:5px;
+          vertical-align: middle;
+          border-radius:0 !important;
+          border:none !important;
+        }
+        td {
+          text-align: center;
+          font-size: 15px;
+
+          &:hover {
+            cursor:pointer;
+          }
+
+          &.day {
+            color:#ccc;
+          }
+
+          &.day.has-activity {
+            color:#000;
+          }
+
+          &.active {
+            background-color: #e9edf0;
+          }
+
+          &.today {
+            background-color: $orange;
+            color:#fff;
+
+            &:hover {
+              background-color:$orangeHover;
+            }
+          }
+        }
+        th {
+          &.datepicker-switch {
+            padding:5px 10px;
+            font-weight: normal;
+            background-color: $calendarBlue2;
+            color:#fff;
+
+            &:hover {
+              background-color:$darkBlue;
+            }
+          }
+          &.dow {
+            font-size:10px;
+            background-color: #fff;
+            color:#000;
+          }
+          &.prev, &.next {
+            display: block;
+            width:30px;
+            height:30px;
+            font-size: 0px;
+            color:transparent;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
+            background-color: $calendarBlue2;
+            margin: 5px;
+
+            &:hover {
+              background-color:$darkBlue;
+            }
+          }
+
+          &.prev {
+            margin-right:5px;
+            @include retina-image('../images/icon-prev', 7px 11px, 'png');
+
+            &:hover {
+              @include retina-image('../images/icon-prev', 7px 11px, 'png');
+            }
+          }
+          &.next {
+            margin-left:5px;
+            @include retina-image('../images/icon-next', 7px 11px, 'png');
+
+            &:hover {
+              @include retina-image('../images/icon-next', 7px 11px, 'png');
+            }
+          }
+        }
+      }
+    }
+  }
+}

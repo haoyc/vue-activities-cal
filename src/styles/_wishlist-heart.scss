@@ -1,0 +1,57 @@
+.wishlist-heart-toggle {
+	position: relative;
+	display: block;
+	width:30px;
+	height:26px;
+	@include retina-image('../images/icon-heart', 30px 26px, 'png');
+	opacity: 1;
+	@include transition(opacity $default-speed $default-transition);
+
+	span {
+		display: block;
+		width:100%;
+		height:100%;
+		position: absolute;
+		top:0;
+		left:0;
+		@include retina-image('../images/icon-heart-full', 30px 26px, 'png');
+		opacity: 0;
+		@include transition(opacity $default-speed $default-transition);
+	}
+
+	&.active {
+		span {
+			opacity: 1;
+		}
+	}
+
+	&.wht-heart {
+		@include retina-image('../images/icon-heart-wht', 30px 26px, 'png');
+
+		span {
+			@include retina-image('../images/icon-heart-wht-full', 30px 26px, 'png');
+		}
+
+		&.active {
+			span {
+				opacity: 1;
+			}
+		}
+	}
+
+	&:active {
+		opacity: .5;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	@include media($screen-md) {
+		&:hover {
+			span {
+				opacity:1;
+			}
+		}
+	}
+}

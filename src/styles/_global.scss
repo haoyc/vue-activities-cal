@@ -1,0 +1,371 @@
+html,body {
+	height: 100%;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+a, object, embed, input, textarea {
+	outline: 0;
+}
+
+.site-outer-wrap {
+	max-width: $screen-lg-size;
+	margin:0 auto;
+	position: relative;
+
+	@include media($screen-md) {
+		padding:0 30px;
+	}
+}
+
+.main {
+	position: relative;
+	padding-top:70px;
+
+	@include media($screen-md) {
+		padding-top:140px;
+	}
+}
+
+.none {
+	display: none;
+}
+
+.hide-md {
+	@include media($screen-md) {
+		display: none;
+	}
+}
+
+.show-md {
+	@include media($screen-md) {
+		display: block;
+	}
+}
+
+.show-inline-md {
+	@include media($screen-md) {
+		display: inline;
+	}
+}
+
+.vert-center-content {
+	display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+	align-items:center;
+	height: 100%;
+	width:100%;
+
+	.vert-center-content-item {
+		width:100%;
+	}
+	
+	.vert-center-content-top {
+		align-self: flex-start;
+	}
+
+	.vert-center-content-bottom {
+		align-self: flex-end;
+	}
+}
+
+.embed-container { 
+	position: relative; 
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+	height: auto;
+} 
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed { 
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.video-modal, .page-modal {
+	display: none;
+	position: fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index: 1000;
+	background-color: rgba(0,0,0,.9);
+	opacity: 0;
+	@include transition(opacity $default-speed $default-transition);
+
+	&.show {
+		display: block;
+	}
+
+	&.fadein {
+		opacity: 1;
+	}
+
+	.close-video-modal, .close-page-modal {
+		display: block;
+		background-color: #fff;
+		width:34px;
+		height:34px;
+		border-radius:34px;
+		border:1px solid $categoryNavBorder;
+		@include retina-image('../images/close-icon-small', 12px 12px, 'png');
+		background-position: center center;
+		background-repeat: no-repeat;
+		position: fixed;
+		top:10px;
+		right:10px;
+		z-index: 1200;
+		@include transition(background-color $default-speed $default-transition);
+
+		&:hover {
+			cursor:pointer;
+			background-color:$orange;
+			@include retina-image('../images/close-icon-small-hover', 12px 12px, 'png');
+		}
+	}
+
+	.close-page-modal {
+		position: absolute;
+		top:-20px;
+	}
+}
+
+.page-modal {
+	overflow: scroll;
+
+	.page-modal-content {
+		width:100%;
+		max-width: 860px;
+		margin:30px auto;
+		position: relative;
+	}
+
+	.page-modal-content-inner {
+		background-color: #fff;
+		color:#000;
+		position: relative;
+		margin:0 30px;
+		padding:20px;
+	}
+
+	@include media($screen-md) {
+		.page-modal-content-inner {
+			padding:40px 80px;
+		}
+	}
+}
+
+#booking-modal {
+	.page-modal-title {
+		@include row();
+		font-family: 'Oswald', sans-serif;
+		text-transform: uppercase;
+		font-size: 16px;
+		line-height: 22px;
+		letter-spacing: 2px;
+		color:$darkBlueText;
+		text-align: center;
+		padding-bottom: 30px;
+
+		span {
+			border-bottom: 5px solid $orange;
+			padding-bottom: 5px;
+		}
+	}
+
+	table {
+		width:100%;
+		padding-bottom: 30px;
+		color:$darkBlueText;
+		font-size: 12px;
+
+		td {
+			padding:10px;
+			border:1px solid $lightGrey;
+			border-collapse: collapse;
+			vertical-align: top;
+		}
+
+		a {
+			color:$footerLowerGreyText;
+			text-decoration: none;
+		}
+	}
+
+	.btn {
+		padding:10px 30px;
+		font-size: 10px;
+		background-color: transparent;
+		border:1px solid $orange;
+		color:$orange !important;
+	}
+
+	.center-btn-wrap {
+		.btn {
+			border-color:#000;
+			color:#000 !important;
+		}
+	}
+
+	.destination-name {
+		font-family: 'Oswald', sans-serif;
+		text-transform: uppercase;
+		font-size: 12px;
+		letter-spacing: 1px;
+		border-right:1px solid #fff;
+	}
+
+	.destination-number {
+		text-align: right;
+	}
+
+	.online-reservations {
+		margin-top:20px;
+	}
+
+	@include media($screen-sm) {
+		table, .destination-name {
+			font-size: 14px;
+		}
+
+		table {
+			td {
+				vertical-align: middle;
+				padding:10px 30px;
+			}
+		}
+	}
+
+	@include media($screen-md) {
+
+		table, .destination-name {
+			font-size: 16px;
+		}
+
+		.page-modal-title {
+			font-size: 30px;
+			line-height: 38px;
+			padding-bottom: 60px;
+			letter-spacing: 5px;
+				
+			span {
+				border-bottom: 10px solid $orange;
+				padding-bottom: 15px;
+			}
+		}
+
+		table {
+			td {
+				padding:20px 40px;
+			}
+		}
+
+		.destination-name {
+			font-size: 16px;
+		}
+
+		.online-reservations {
+			&:hover {
+				background:$orange;
+				color:#fff !important;
+			}
+		}
+	}
+}
+
+.admin-bar {
+	.video-modal, .page-modal {
+		.page-modal-content {
+			margin-top:75px;
+		}
+	}
+
+	.close-video-modal {
+		top:40px;
+	}
+
+	@media screen and (min-width: 782px) {
+		.page-modal-content {
+			margin-top:60px;
+		}
+	}
+}
+
+.breadcrumbs {
+	color:$darkBlueText;
+	padding:10px 0;
+	display: none;
+
+	a {
+		color:$darkBlueText;
+		font-weight: bold;
+	}
+
+	@include media($screen-md) {
+		display: block;
+	}
+}
+
+.no-masthead-share-links {
+	float: right;
+	display: none;
+
+	.post-share-icons {
+		margin-top:-2px;
+	}
+
+	@include media($screen-md) {
+		display: block;
+	}
+}
+
+.page-template-template-page-misc {
+
+	.contact-us-block, .sml-signup {
+		display: none !important;
+	}
+
+	@include media($screen-md) {
+		.site-header {
+			height: 70px;
+		}
+		.main {
+			padding-top:70px;
+		}
+		.menu-main-menu-container {
+			display: none !important;
+		}
+	}
+}
+
+.page-template-template-page-misc-with-bottom {
+
+	@include media($screen-md) {
+		.site-header {
+			height: 70px;
+		}
+		.main {
+			padding-top:70px;
+		}
+		.menu-main-menu-container {
+			display: none !important;
+		}
+	}
+}
+

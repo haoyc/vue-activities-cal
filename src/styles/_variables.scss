@@ -1,0 +1,62 @@
+/*// Grid settings
+$main-sm-columns:       12;
+$sidebar-sm-columns:    4;*/
+
+// Colors
+$blue: #42545f;
+$blueBorder: #5c6b75;
+$lightBlue: #b3e4e3;
+$darkBlue: #252c31;
+$darkBlueText: #181b1d;
+$lightGrey: #eff3f5;
+$lighterGrey: #f9fafb;
+$darkGrey: #333;
+$greyBg: #a1abb2;
+$lightGreyText: #a6a7a8;
+$dateGreyText: #afb0b0;
+$scheduleGreyText: #b0b0b0;
+$postGreyText: #4e5356;
+$footerGreyText: #a4a4a4;
+$footerLowerGreyText: #6b6c6d;
+$inputBorder: #b2b2b2;
+$categoryNavBorder: #ccc;
+$orange: #cd5a23;
+$orangeHover: #a1411b;
+$orangeActive: #88310e;
+$lightOrange: #e5b6a7;
+$sand: #eebd81;
+$calendarBlue: #415460;
+$calendarBlue2: #3a4b56;
+
+
+// Grid
+$screen-xs-size: 100%;
+
+$screen-ss-size: 100%;
+$screen-ss-breakpoint: 480px;
+
+$screen-sm-size: 100%;
+$screen-sm-breakpoint: 768px;
+
+$screen-md-size: 100%;
+$screen-md-breakpoint: 960px;
+
+$screen-lg-size: 1366px;
+$screen-lg-breakpoint: 1366px;
+
+$screen-xl-size: 1600px;
+$screen-xl-breakpoint: 1600px;
+
+// Bourbon Neat Breakpoints
+$screen-ss: new-breakpoint(min-width $screen-ss-breakpoint 12);
+$screen-sm: new-breakpoint(min-width $screen-sm-breakpoint 12);
+$screen-md: new-breakpoint(min-width $screen-md-breakpoint 12);
+$screen-lg: new-breakpoint(min-width $screen-lg-breakpoint 12);
+$screen-xl: new-breakpoint(min-width $screen-xl-breakpoint 12);
+
+// Animation
+$default-speed: .25s;
+$default-transition: cubic-bezier(.09,.5,.35,.98);
+$easeInOutQuint: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+$easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+$easeInOutQuint: cubic-bezier(0.860, 0.000, 0.070, 1.000);
